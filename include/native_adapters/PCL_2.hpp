@@ -9,7 +9,7 @@
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/common/common.h>
 
-#include <variant>
+//#include <variant>
 
 struct StampedPointCloud2 {
     std_msgs::msg::Header header;
@@ -27,21 +27,21 @@ struct StampedPointCloud2 {
 
     StampedPointCloud2(const StampedPointCloud2 &other){
       std::cerr << "[PointCloud2 Adapter] Copy constructor called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       this->header = other.header;
       this->cloud = other.cloud;
     }
 
     StampedPointCloud2(StampedPointCloud2 &&other){
       std::cerr << "[PointCloud2 Adapter] Move constructor called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       this->header = std::move(other.header);
       this->cloud = std::move(other.cloud);
     }
 
     StampedPointCloud2 & operator=(const StampedPointCloud2 & other){
       std::cerr << "[PointCloud2 Adapter] Assignment operator called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       if (this == &other) return *this; 
       this->header = other.header;
       this->cloud = other.cloud;
@@ -58,12 +58,16 @@ struct rclcpp::TypeAdapter<StampedPointCloud2, sensor_msgs::msg::PointCloud2>
 
   static void convert_to_ros_message (const custom_type & source, ros_message_type & destination){
     std::cerr << "[PointCloud2 Adapter] Conversion to message" << std::endl;
+    //raise(SIGTRAP);
+
     std::visit([&](auto&& cloud){pcl::toROSMsg(cloud, destination);}, source.cloud);
     destination.header = source.header;
   }
 
   static void convert_to_custom (const ros_message_type & source, custom_type & destination){
     std::cerr << "[PointCloud2 Adapter] Conversion from message" << std::endl;
+    //raise(SIGTRAP);
+    
     bool rgb = false;
     bool rgba = false;
     bool intensity = false;

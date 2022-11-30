@@ -9,7 +9,7 @@
 #include <nav_msgs/msg/map_meta_data.hpp>
 #include <opencv2/core/mat.hpp>
 
-#include <signal.h>
+//#include <signal.h>
 
 struct StampedCvMat {
     std_msgs::msg::Header header;
@@ -24,7 +24,7 @@ struct StampedCvMat {
 
     StampedCvMat(const StampedCvMat &other){      
       std::cerr << "[OccupancyGrid Adapter] Copy constructor called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       this->header = other.header;
       this->info = other.info;
       this->mat = other.mat.clone();
@@ -32,7 +32,7 @@ struct StampedCvMat {
 
     StampedCvMat(StampedCvMat &&other){
       std::cerr << "[OccupancyGrid Adapter] Move constructor called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       this->header = std::move(other.header);
       this->info = std::move(other.info);
       this->mat = std::move(other.mat);
@@ -40,7 +40,7 @@ struct StampedCvMat {
 
     StampedCvMat & operator=(const StampedCvMat & other){
       std::cerr << "[OccupancyGrid Adapter] Assignment operator called" << std::endl;
-      raise(SIGTRAP);
+      //raise(SIGTRAP);
       if (this == &other) return *this; 
       this->header = other.header;
       this->info = other.info;
@@ -71,6 +71,8 @@ struct rclcpp::TypeAdapter<StampedCvMat, nav_msgs::msg::OccupancyGrid>
 
   static void convert_to_custom (const ros_message_type & source, custom_type & destination){
     std::cerr << "[OccupancyGrid Adapter] Conversion from message" << std::endl;
+    //raise(SIGTRAP);
+
     destination.mat = cv::Mat (source.info.height, source.info.width, CV_MAKETYPE(cv::DataType<uint8_t>::type, 1));
     for(unsigned int y=0; y<source.info.height; ++y){
         for(unsigned int x=0; x<source.info.width; ++x){
