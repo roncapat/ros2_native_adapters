@@ -17,6 +17,7 @@ struct StampedCvMat {
     cv::Mat mat;
 
     static const uint8_t UNKNOWN = 0;
+    static const uint8_t FREE = 1;
     static const uint8_t MIN_COST = 2;
     static const uint8_t OBSTACLE = 101;
 
