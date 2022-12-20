@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>native_adapters</name>
-  <version>0.0.0</version>
+  <version>1.0.0</version>
   <description>ROS2 Type adapters for common C++ frameworks</description>
   <maintainer email="roncapat@gmail.com">Patrick Roncagliolo</maintainer>
-  <license>GPLv3</license>
+  <license>LGPLv3</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
