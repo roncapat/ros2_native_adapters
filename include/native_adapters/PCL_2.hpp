@@ -12,44 +12,51 @@
 //#include <variant>
 
 struct StampedPointCloud2 {
-    std_msgs::msg::Header header;
-    std::variant<
-      pcl::PointCloud<pcl::PointXYZ>,
-      pcl::PointCloud<pcl::PointXYZL>,
-      pcl::PointCloud<pcl::PointXYZI>,
-      pcl::PointCloud<pcl::PointXYZRGBA>,
-      pcl::PointCloud<pcl::PointXYZRGB>,
-      pcl::PointCloud<pcl::PointXYZRGBL>,
-      pcl::PointCloud<pcl::PointNormal>,
-      pcl::PointCloud<pcl::PointXYZRGBNormal>,
-      pcl::PointCloud<pcl::PointXYZLNormal>,
-      pcl::PointCloud<pcl::PointXYZINormal>
-    > cloud;
+  std_msgs::msg::Header header;
+  std::variant<
+    pcl::PointCloud<pcl::PointXYZ>,
+    pcl::PointCloud<pcl::PointXYZL>,
+    pcl::PointCloud<pcl::PointXYZI>,
+    pcl::PointCloud<pcl::PointXYZRGBA>,
+    pcl::PointCloud<pcl::PointXYZRGB>,
+    pcl::PointCloud<pcl::PointXYZRGBL>,
+    pcl::PointCloud<pcl::PointNormal>,
+    pcl::PointCloud<pcl::PointXYZRGBNormal>,
+    pcl::PointCloud<pcl::PointXYZLNormal>,
+    pcl::PointCloud<pcl::PointXYZINormal>
+  > cloud;
 
-    StampedPointCloud2() = default;
+  StampedPointCloud2() = default;
 
-    StampedPointCloud2(const StampedPointCloud2 &other){
-      std::cerr << "[PointCloud2 Adapter] Copy constructor called" << std::endl;
-      //raise(SIGTRAP);
-      this->header = other.header;
-      this->cloud = other.cloud;
-    }
+  StampedPointCloud2(const StampedPointCloud2 &other){
+    std::cerr << "[PointCloud2 Adapter] Copy constructor called" << std::endl;
+    //raise(SIGTRAP);
+    this->header = other.header;
+    this->cloud = other.cloud;
+  }
 
-    StampedPointCloud2(StampedPointCloud2 &&other){
-      std::cerr << "[PointCloud2 Adapter] Move constructor called" << std::endl;
-      //raise(SIGTRAP);
-      this->header = std::move(other.header);
-      this->cloud = std::move(other.cloud);
-    }
+  StampedPointCloud2(StampedPointCloud2 &&other){
+    std::cerr << "[PointCloud2 Adapter] Move constructor called" << std::endl;
+    //raise(SIGTRAP);
+    this->header = std::move(other.header);
+    this->cloud = std::move(other.cloud);
+  }
 
-    StampedPointCloud2 & operator=(const StampedPointCloud2 & other){
-      std::cerr << "[PointCloud2 Adapter] Assignment operator called" << std::endl;
-      //raise(SIGTRAP);
-      if (this == &other) return *this; 
-      this->header = other.header;
-      this->cloud = other.cloud;
-    }
+  StampedPointCloud2 & operator=(const StampedPointCloud2 & other){
+    std::cerr << "[PointCloud2 Adapter] Assignment operator called" << std::endl;
+    //raise(SIGTRAP);
+    if (this == &other) return *this; 
+    this->header = other.header;
+    this->cloud = other.cloud;
+  }
 
+  uint32_t width() const {
+    return std::visit([&](auto&& cloud){return cloud.width;}, cloud);
+  }
+
+  uint32_t height() const {
+    return std::visit([&](auto&& cloud){return cloud.height;}, cloud);
+  }
 };
 
 template<>
