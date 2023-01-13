@@ -15,11 +15,14 @@ struct StampedPointCloud2 {
     std_msgs::msg::Header header;
     std::variant<
       pcl::PointCloud<pcl::PointXYZ>,
+      pcl::PointCloud<pcl::PointXYZL>,
       pcl::PointCloud<pcl::PointXYZI>,
       pcl::PointCloud<pcl::PointXYZRGBA>,
       pcl::PointCloud<pcl::PointXYZRGB>,
+      pcl::PointCloud<pcl::PointXYZRGBL>,
       pcl::PointCloud<pcl::PointNormal>,
       pcl::PointCloud<pcl::PointXYZRGBNormal>,
+      pcl::PointCloud<pcl::PointXYZLNormal>,
       pcl::PointCloud<pcl::PointXYZINormal>
     > cloud;
 
