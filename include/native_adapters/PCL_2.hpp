@@ -51,11 +51,18 @@ struct StampedPointCloud2 {
   }
 
   uint32_t width() const {
-    return std::visit([&](auto&& cloud){return cloud.width;}, cloud);
+    return std::visit([](auto&& cloud){return cloud.width;}, cloud);
   }
 
   uint32_t height() const {
-    return std::visit([&](auto&& cloud){return cloud.height;}, cloud);
+    return std::visit([](auto&& cloud){return cloud.height;}, cloud);
+  }
+
+  bool has_colors() const {
+    return std::visit([](auto&& cloud) {
+      using T = typename std::decay_t<decltype(cloud)>::PointType;
+      return pcl::traits::has_color_v<T>;
+    }, cloud);
   }
 };
 
