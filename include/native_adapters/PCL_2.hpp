@@ -89,6 +89,7 @@ struct rclcpp::TypeAdapter<StampedPointCloud2, sensor_msgs::msg::PointCloud2>
     bool rgba = false;
     bool intensity = false;
     bool normals = false;
+    bool label = false;
     for (auto f : source.fields) {
       if (f.name == "rgb") {
         rgb = true;
@@ -102,22 +103,39 @@ struct rclcpp::TypeAdapter<StampedPointCloud2, sensor_msgs::msg::PointCloud2>
       if (f.name == "normal_x") {
         normals = true;
       }
+      if (f.name == "label") {
+        label = true;
+      }
     }
 
     if (rgba) {
       process_message<pcl::PointXYZRGBA>(source, destination);
-    } else if (rgb and normals) {
-      process_message<pcl::PointXYZRGBNormal>(source, destination);
     } else if (rgb) {
-      process_message<pcl::PointXYZRGB>(source, destination);
-    } else if (intensity and normals) {
-      process_message<pcl::PointXYZINormal>(source, destination);
+      if (normals) {
+        process_message<pcl::PointXYZRGBNormal>(source, destination);
+      } else if (label) {
+        process_message<pcl::PointXYZRGBL>(source, destination);
+      } else {
+        process_message<pcl::PointXYZRGB>(source, destination);
+      }
     } else if (intensity) {
-      process_message<pcl::PointXYZI>(source, destination);
-    } else if (normals) {
-      process_message<pcl::PointNormal>(source, destination);
+      if (normals) {
+        process_message<pcl::PointXYZINormal>(source, destination);
+      } else {
+        process_message<pcl::PointXYZI>(source, destination);
+      }
+    } else if (label) {
+      if (normals) {
+        process_message<pcl::PointNormal>(source, destination);
+      } else {
+        process_message<pcl::PointXYZ>(source, destination);
+      }
     } else {
-      process_message<pcl::PointXYZ>(source, destination);
+      if (normals) {
+        process_message<pcl::PointXYZLNormal>(source, destination);
+      } else {
+        process_message<pcl::PointXYZL>(source, destination);
+      }
     }
 
     destination.header = source.header;
