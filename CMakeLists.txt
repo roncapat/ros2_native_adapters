@@ -33,7 +33,8 @@ target_link_libraries(NativeAdapters
   ${sensor_msgs_TARGETS}
   ${nav_msgs_TARGETS}
   ${OpenCV_LIBS}
-  ${cv_bridge_TARGETS})
+  ${cv_bridge_TARGETS}
+)
 
 install(
   TARGETS NativeAdapters
