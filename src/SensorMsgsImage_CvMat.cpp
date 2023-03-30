@@ -66,5 +66,5 @@ void rclcpp::TypeAdapter<CustomCvMat, sensor_msgs::msg::Image>::convert_to_custo
     std::cerr << "[SensorMsgsImage_CvMat Adapter] Conversion from message" << std::endl;
 
     destination.header = source.header;
-    destination.mat = cv_bridge::toCvCopy(source, source.encoding)->image;
+    destination.mat = std::move(cv_bridge::toCvCopy(source, source.encoding)->image);
 }
