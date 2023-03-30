@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 project(native_adapters)
 
+set(CMAKE_CXX_STANDARD 17)
+
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
@@ -22,7 +24,6 @@ set_target_properties(NativeAdapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
 target_include_directories(NativeAdapters PUBLIC include)
 
 target_include_directories(NativeAdapters PRIVATE 
-  ${PCL_INCLUDE_DIRS} 
   ${pcl_conversions_INCLUDE_DIRS}
 )
 
@@ -34,7 +35,8 @@ target_link_libraries(NativeAdapters
   ${nav_msgs_TARGETS}
   ${OpenCV_LIBS}
   ${cv_bridge_TARGETS}
-)
+  ${PCL_LIBRARIES}
+  )
 
 install(
   TARGETS NativeAdapters

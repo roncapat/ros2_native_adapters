@@ -42,7 +42,7 @@ bool StampedPointCloud2::has_colors() const {
 
 template <typename PointT>
 void process_message(const sensor_msgs::msg::PointCloud2 & source, StampedPointCloud2 & destination){
-  destination.cloud = pcl::PointCloud<PointT>();
+  destination.cloud = std::move(pcl::PointCloud<PointT>());
   pcl::fromROSMsg(source, std::get<pcl::PointCloud<PointT>>(destination.cloud));
 }
 
