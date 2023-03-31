@@ -15,9 +15,11 @@ find_package(cv_bridge REQUIRED)
 
 set(PUB_HEADERS
   include/native_adapters/NavMsgOccupancyGrid_CvMat.hpp
-  include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
   include/native_adapters/SensorMsgImage_CvMat.hpp
-)
+  include/native_adapters/CV.hpp
+  include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
+  include/native_adapters/PCL.hpp
+  )
 
 add_library(NativeAdapters SHARED 
   src/NavMsgOccupancyGrid_CvMat.cpp 
