@@ -14,12 +14,12 @@ find_package(pcl_conversions REQUIRED)
 find_package(cv_bridge REQUIRED)
 
 set(PUB_HEADERS
-  include/native_adapters/OpenCV.hpp
-  include/native_adapters/PCL_2.hpp
+  include/native_adapters/NavigationOccupancyGrid_CvMat.hpp
+  include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
   include/native_adapters/SensorMsgsImage_CvMat.hpp
 )
 
-add_library(NativeAdapters SHARED src/OpenCV.cpp src/PCL_2.cpp src/SensorMsgsImage_CvMat.cpp)
+add_library(NativeAdapters SHARED src/NavigationOccupancyGrid_CvMat.cpp src/SensorMsgPointCloud2_PCLPointCloud.cpp src/SensorMsgsImage_CvMat.cpp)
 set_target_properties(NativeAdapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
 target_include_directories(NativeAdapters PUBLIC include)
 

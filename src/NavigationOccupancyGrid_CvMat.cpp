@@ -1,7 +1,7 @@
-#include "native_adapters/OpenCV.hpp"
+#include "native_adapters/NavigationOccupancyGrid_CvMat.hpp"
 #include <iostream>
 
-StampedCvMat::StampedCvMat(const StampedCvMat &other){      
+StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other){      
   std::cerr << "[OccupancyGrid Adapter] Copy constructor called" << std::endl;
   //raise(SIGTRAP);
   this->header = other.header;
@@ -9,7 +9,7 @@ StampedCvMat::StampedCvMat(const StampedCvMat &other){
   this->mat = other.mat.clone();
 }
 
-StampedCvMat::StampedCvMat(StampedCvMat &&other){
+StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(StampedOccupancyGrid_CV &&other){
   std::cerr << "[OccupancyGrid Adapter] Move constructor called" << std::endl;
   //raise(SIGTRAP);
   this->header = std::move(other.header);
@@ -17,7 +17,7 @@ StampedCvMat::StampedCvMat(StampedCvMat &&other){
   this->mat = std::move(other.mat);
 }
 
-StampedCvMat & StampedCvMat::operator=(const StampedCvMat & other){
+StampedOccupancyGrid_CV & StampedOccupancyGrid_CV::operator=(const StampedOccupancyGrid_CV & other){
   std::cerr << "[OccupancyGrid Adapter] Assignment operator called" << std::endl;
   //raise(SIGTRAP);
   if (this == &other) return *this; 
@@ -64,7 +64,7 @@ struct rclcpp::TypeAdapter<StampedCvMat, nav_msgs::msg::OccupancyGrid>
 };
 */
 
-void rclcpp::TypeAdapter<StampedCvMat, nav_msgs::msg::OccupancyGrid>::convert_to_ros_message (const StampedCvMat & source, nav_msgs::msg::OccupancyGrid & destination){
+void rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid>::convert_to_ros_message (const StampedOccupancyGrid_CV & source, nav_msgs::msg::OccupancyGrid & destination){
   std::cerr << "[OccupancyGrid Adapter] Conversion to message" << std::endl;
   //raise(SIGTRAP);
 
@@ -78,7 +78,7 @@ void rclcpp::TypeAdapter<StampedCvMat, nav_msgs::msg::OccupancyGrid>::convert_to
   destination.info = source.info;
 }
 
-void rclcpp::TypeAdapter<StampedCvMat, nav_msgs::msg::OccupancyGrid>::convert_to_custom (const nav_msgs::msg::OccupancyGrid & source, StampedCvMat & destination){
+void rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid>::convert_to_custom (const nav_msgs::msg::OccupancyGrid & source, StampedOccupancyGrid_CV & destination){
   std::cerr << "[OccupancyGrid Adapter] Conversion from message" << std::endl;
   //raise(SIGTRAP);
 
