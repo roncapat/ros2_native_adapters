@@ -9,22 +9,26 @@ find_package(nav_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
 find_package(OpenCV REQUIRED)
-find_package(PCL REQUIRED COMPONENTS common)
+find_package(PCL 1.12 REQUIRED COMPONENTS common)
 find_package(pcl_conversions REQUIRED)
 find_package(cv_bridge REQUIRED)
 
 set(PUB_HEADERS
-  include/native_adapters/NavigationOccupancyGrid_CvMat.hpp
+  include/native_adapters/NavMsgOccupancyGrid_CvMat.hpp
   include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
-  include/native_adapters/SensorMsgsImage_CvMat.hpp
+  include/native_adapters/SensorMsgImage_CvMat.hpp
 )
 
-add_library(NativeAdapters SHARED src/NavigationOccupancyGrid_CvMat.cpp src/SensorMsgPointCloud2_PCLPointCloud.cpp src/SensorMsgsImage_CvMat.cpp)
+add_library(NativeAdapters SHARED 
+  src/NavMsgOccupancyGrid_CvMat.cpp 
+  src/SensorMsgPointCloud2_PCLPointCloud.cpp 
+  src/SensorMsgImage_CvMat.cpp)
 set_target_properties(NativeAdapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
 target_include_directories(NativeAdapters PUBLIC include)
 
 target_include_directories(NativeAdapters PRIVATE 
   ${pcl_conversions_INCLUDE_DIRS}
+  ${cv_bridge_INCLUDE_DIRS}
 )
 
 target_link_libraries(NativeAdapters
@@ -33,8 +37,8 @@ target_link_libraries(NativeAdapters
   ${std_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
   ${nav_msgs_TARGETS}
-  ${OpenCV_LIBS}
   ${cv_bridge_TARGETS}
+  ${OpenCV_LIBS}
   ${PCL_LIBRARIES}
   )
 

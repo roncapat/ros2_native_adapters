@@ -1,5 +1,5 @@
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__SENSORMSGIMAGE_CVMAT
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__SENSORMSGIMAGE_CVMAT
+#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
+#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
 
 #include <rclcpp/type_adapter.hpp>
 
@@ -29,4 +29,4 @@ struct rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>{
 };
 
 
-#endif
+#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV

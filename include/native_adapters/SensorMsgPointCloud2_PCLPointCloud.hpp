@@ -1,5 +1,5 @@
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__PCL_2
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__PCL_2
+#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
+#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
 
 #include <rclcpp/type_adapter.hpp>
 #include <std_msgs/msg/header.hpp>
@@ -43,4 +43,4 @@ struct rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>
   static void convert_to_custom (const ros_message_type & source, custom_type & destination);
 };
 
-#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__PCL_2
+#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL

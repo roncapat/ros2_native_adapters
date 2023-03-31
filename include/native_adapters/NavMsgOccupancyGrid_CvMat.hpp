@@ -1,6 +1,5 @@
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__OCV
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__OCV
-
+#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
+#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
 #include <rclcpp/type_adapter.hpp>
 #include <std_msgs/msg/header.hpp>
 #include <nav_msgs/msg/occupancy_grid.hpp>
@@ -32,4 +31,4 @@ struct rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid
   static void convert_to_custom (const ros_message_type & source, custom_type & destination);
 };
 
-#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__OCV
+#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV

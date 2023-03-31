@@ -1,7 +1,6 @@
-#include "native_adapters/SensorMsgsImage_CvMat.hpp"
+#include <native_adapters/SensorMsgImage_CvMat.hpp>
 
 #include <sensor_msgs/image_encodings.hpp>
-
 #include <cv_bridge/cv_bridge.h>
 #include <iostream>
 
