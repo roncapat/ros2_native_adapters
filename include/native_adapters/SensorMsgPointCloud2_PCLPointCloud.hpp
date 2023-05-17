@@ -5,7 +5,7 @@
 #include <std_msgs/msg/header.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <pcl/common/common.h>
-
+#include <memory>
 #include <variant>
 
 struct StampedPointCloud_PCL {
@@ -27,6 +27,8 @@ struct StampedPointCloud_PCL {
   StampedPointCloud_PCL(const StampedPointCloud_PCL &other);
   StampedPointCloud_PCL(StampedPointCloud_PCL &&other);
   StampedPointCloud_PCL & operator=(const StampedPointCloud_PCL & other);
+  using SharedPtr = std::shared_ptr<StampedPointCloud_PCL>;
+  using ConstSharedPtr = std::shared_ptr<const StampedPointCloud_PCL>;
 
   uint32_t width() const;
   uint32_t height() const;

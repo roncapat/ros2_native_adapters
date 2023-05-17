@@ -20,6 +20,8 @@ struct StampedOccupancyGrid_CV {
   StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other);
   StampedOccupancyGrid_CV(StampedOccupancyGrid_CV &&other);
   StampedOccupancyGrid_CV & operator=(const StampedOccupancyGrid_CV & other);
+  using SharedPtr = std::shared_ptr<StampedOccupancyGrid_CV>;
+  using ConstSharedPtr = std::shared_ptr<const StampedOccupancyGrid_CV>;
 };
 
 template<>

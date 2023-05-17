@@ -1,6 +1,6 @@
 #ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
 #define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
-
+#include <memory>
 #include <rclcpp/type_adapter.hpp>
 
 #include <sensor_msgs/msg/image.hpp>
@@ -16,7 +16,8 @@ struct StampedImage_CV {
   StampedImage_CV(const StampedImage_CV &other);
   StampedImage_CV(StampedImage_CV &&other);
   StampedImage_CV & operator=(const StampedImage_CV & other);
-
+  using SharedPtr = std::shared_ptr<StampedImage_CV>;
+  using ConstSharedPtr = std::shared_ptr<const StampedImage_CV>;
 };
 
 template<>
