@@ -11,10 +11,10 @@ struct StampedOccupancyGrid_CV {
   nav_msgs::msg::MapMetaData info;
   cv::Mat mat;
 
-  static const uint8_t UNKNOWN = 0;
-  static const uint8_t FREE = 1;
-  static const uint8_t MIN_COST = 2;
-  static const uint8_t OBSTACLE = 101;
+  static const uint8_t UNKNOWN;
+  static const uint8_t FREE;
+  static const uint8_t MIN_COST;
+  static const uint8_t OBSTACLE;
 
   StampedOccupancyGrid_CV() = default;
   StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other);

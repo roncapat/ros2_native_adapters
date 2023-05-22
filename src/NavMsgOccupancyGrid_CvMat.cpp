@@ -2,7 +2,12 @@
 
 #include <iostream>
 
-StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other){      
+const uint8_t StampedOccupancyGrid_CV::UNKNOWN = 0;
+const uint8_t StampedOccupancyGrid_CV::FREE = 1;
+const uint8_t StampedOccupancyGrid_CV::MIN_COST = 2;
+const uint8_t StampedOccupancyGrid_CV::OBSTACLE = 101;
+
+StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other){
   std::cerr << "[OccupancyGrid Adapter] Copy constructor called" << std::endl;
   //raise(SIGTRAP);
   this->header = other.header;
