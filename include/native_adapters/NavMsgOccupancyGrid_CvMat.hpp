@@ -5,6 +5,7 @@
 #include <nav_msgs/msg/occupancy_grid.hpp>
 #include <nav_msgs/msg/map_meta_data.hpp>
 #include <opencv2/core/mat.hpp>
+#include <native_adapters/PointerDefinesMacro.hpp>
 
 struct StampedOccupancyGrid_CV {
   std_msgs::msg::Header header;
@@ -20,8 +21,8 @@ struct StampedOccupancyGrid_CV {
   StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &other);
   StampedOccupancyGrid_CV(StampedOccupancyGrid_CV &&other);
   StampedOccupancyGrid_CV & operator=(const StampedOccupancyGrid_CV & other);
-  using SharedPtr = std::shared_ptr<StampedOccupancyGrid_CV>;
-  using ConstSharedPtr = std::shared_ptr<const StampedOccupancyGrid_CV>;
+
+  DEFINE_MSG_POINTERS(StampedOccupancyGrid_CV)
 };
 
 template<>
