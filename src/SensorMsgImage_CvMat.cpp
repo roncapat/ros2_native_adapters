@@ -2,22 +2,22 @@
 
 #include <sensor_msgs/image_encodings.hpp>
 #include <cv_bridge/cv_bridge.h>
-#include <iostream>
+#include <rclcpp/logging.hpp>
 
 StampedImage_CV::StampedImage_CV(const StampedImage_CV &other) {
-    std::cerr << "[SensorMsgsImage_CvMat Adapter] Copy constructor called" << std::endl;
+    RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Copy constructor called");
     this->header = other.header;
     this->mat = other.mat.clone();
 }
 
 StampedImage_CV::StampedImage_CV(StampedImage_CV &&other) {
-    std::cerr << "[SensorMsgsImage_CvMat Adapter] Move constructor called" << std::endl;
+    RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Move constructor called");
     this->header = std::move(other.header);
     this->mat = std::move(other.mat);
 }
 
 StampedImage_CV & StampedImage_CV::operator=(const StampedImage_CV &other) {
-    std::cerr << "[SensorMsgsImage_CvMat Adapter] Assignment operator called" << std::endl;
+    RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Assignment operator called");
     if (this == &other) return *this;
 
     this->header = other.header;
@@ -26,8 +26,7 @@ StampedImage_CV & StampedImage_CV::operator=(const StampedImage_CV &other) {
 }
 
 void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_ros_message (const custom_type & source, ros_message_type & destination){
-    
-    std::cerr << "[SensorMsgsImage_CvMat Adapter] Conversion to message" << std::endl;
+    RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion to message");
 
     int cv_type {source.mat.type()};
     std::string encoding {};
@@ -61,8 +60,7 @@ void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_r
 }
 
 void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_custom (const ros_message_type & source, custom_type & destination){
-    
-    std::cerr << "[SensorMsgsImage_CvMat Adapter] Conversion from message" << std::endl;
+    RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion from message");
 
     destination.header = source.header;
     destination.mat = std::move(cv_bridge::toCvCopy(source, source.encoding)->image);

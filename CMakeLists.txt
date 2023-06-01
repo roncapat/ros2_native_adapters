@@ -19,6 +19,7 @@ set(PUB_HEADERS
   include/native_adapters/CV.hpp
   include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
   include/native_adapters/PCL.hpp
+  include/native_adapters/PointerDefinesMacro.hpp
   )
 
 add_library(NativeAdapters SHARED 
@@ -35,7 +36,6 @@ target_include_directories(NativeAdapters PRIVATE
 
 target_link_libraries(NativeAdapters
   rclcpp::rclcpp 
-  ${rclcpp_components_TARGETS} 
   ${std_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
   ${nav_msgs_TARGETS}

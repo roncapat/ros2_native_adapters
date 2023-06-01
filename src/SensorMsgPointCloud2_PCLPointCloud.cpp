@@ -1,24 +1,24 @@
 #include <native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp>
 
 #include <pcl_conversions/pcl_conversions.h>
-#include <iostream>
+#include <rclcpp/logging.hpp>
 
 StampedPointCloud_PCL::StampedPointCloud_PCL(const StampedPointCloud_PCL &other){
-  std::cerr << "[PointCloud2 Adapter] Copy constructor called" << std::endl;
+  RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Copy constructor called");
   //raise(SIGTRAP);
   this->header = other.header;
   this->cloud = other.cloud;
 }
 
 StampedPointCloud_PCL::StampedPointCloud_PCL(StampedPointCloud_PCL &&other){
-  std::cerr << "[PointCloud2 Adapter] Move constructor called" << std::endl;
+  RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Move constructor called");
   //raise(SIGTRAP);
   this->header = std::move(other.header);
   this->cloud = std::move(other.cloud);
 }
 
 StampedPointCloud_PCL & StampedPointCloud_PCL::operator=(const StampedPointCloud_PCL & other){
-  std::cerr << "[PointCloud2 Adapter] Assignment operator called" << std::endl;
+  RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Assignment operator called");
   //raise(SIGTRAP);
   if (this == &other) return *this; 
   this->header = other.header;
@@ -48,7 +48,7 @@ void process_message(const sensor_msgs::msg::PointCloud2 & source, StampedPointC
 }
 
 void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::convert_to_ros_message (const StampedPointCloud_PCL & source, sensor_msgs::msg::PointCloud2 & destination){
-  std::cerr << "[PointCloud2 Adapter] Conversion to message" << std::endl;
+  RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion to message");
   //raise(SIGTRAP);
 
   std::visit([&](auto&& cloud){pcl::toROSMsg(cloud, destination);}, source.cloud);
@@ -56,7 +56,7 @@ void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::
 }
 
 void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::convert_to_custom (const sensor_msgs::msg::PointCloud2 & source, StampedPointCloud_PCL & destination){
-  std::cerr << "[PointCloud2 Adapter] Conversion from message" << std::endl;
+  RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion from message");
   //raise(SIGTRAP);
   
   bool rgb = false;
