@@ -50,6 +50,30 @@ void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_r
     case CV_16UC4:
         encoding = sensor_msgs::image_encodings::BGRA16;
         break;
+    case CV_32FC1:
+        encoding = sensor_msgs::image_encodings::TYPE_32FC1;
+        break;
+    case CV_32FC2:
+        encoding = sensor_msgs::image_encodings::TYPE_32FC2;
+        break;
+    case CV_32FC3:
+        encoding = sensor_msgs::image_encodings::TYPE_32FC3;
+        break;
+    case CV_32FC4:
+        encoding = sensor_msgs::image_encodings::TYPE_32FC4;
+        break;
+    case CV_64FC1:
+        encoding = sensor_msgs::image_encodings::TYPE_64FC1;
+        break;
+    case CV_64FC2:
+        encoding = sensor_msgs::image_encodings::TYPE_64FC2;
+        break;
+    case CV_64FC3:
+        encoding = sensor_msgs::image_encodings::TYPE_64FC3;
+        break;
+    case CV_64FC4:
+        encoding = sensor_msgs::image_encodings::TYPE_64FC4;
+        break;
     default:
         throw std::invalid_argument("Unsupported image type.");
         break;
