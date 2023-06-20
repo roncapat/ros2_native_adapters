@@ -22,20 +22,20 @@ set(PUB_HEADERS
   include/native_adapters/PointerDefinesMacro.hpp
   )
 
-add_library(NativeAdapters SHARED 
-  src/NavMsgOccupancyGrid_CvMat.cpp 
-  src/SensorMsgPointCloud2_PCLPointCloud.cpp 
+add_library(NativeAdapters SHARED
+  src/NavMsgOccupancyGrid_CvMat.cpp
+  src/SensorMsgPointCloud2_PCLPointCloud.cpp
   src/SensorMsgImage_CvMat.cpp)
 set_target_properties(NativeAdapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
 target_include_directories(NativeAdapters PUBLIC include)
 
-target_include_directories(NativeAdapters PRIVATE 
+target_include_directories(NativeAdapters PRIVATE
   ${pcl_conversions_INCLUDE_DIRS}
   ${cv_bridge_INCLUDE_DIRS}
 )
 
 target_link_libraries(NativeAdapters
-  rclcpp::rclcpp 
+  rclcpp::rclcpp
   ${std_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
   ${nav_msgs_TARGETS}
@@ -58,9 +58,9 @@ ament_export_include_directories(include ${PCL_INCLUDE_DIRS})
 ament_export_libraries(NativeAdapters)
 ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions cv_bridge)
 
-if(BUILD_TESTING) 
-   find_package(ament_lint_auto REQUIRED) 
-   ament_lint_auto_find_test_dependencies() 
+if(BUILD_TESTING)
+   find_package(ament_lint_auto REQUIRED)
+   ament_lint_auto_find_test_dependencies()
  endif()
 
 ament_package()

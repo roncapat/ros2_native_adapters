@@ -1,0 +1,20 @@
+fail_fast: false
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+    -   id: check-merge-conflict
+    -   id: check-symlinks
+    -   id: check-xml
+    -   id: check-yaml
+-   repo: https://github.com/pocc/pre-commit-hooks
+    rev: v1.3.5
+    hooks:
+      - id: uncrustify
+        args: [--replace, --no-backup, "-c", "uncrustify.cfg", "-q"]
+#      - id: clang-format
+#        args: [--style=Google]
+#      - id: clang-tidy
+#      - id: cpplint
