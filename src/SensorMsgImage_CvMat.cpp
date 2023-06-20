@@ -2,10 +2,11 @@
 Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
-#include <native_adapters/SensorMsgImage_CvMat.hpp>
-
-#include <sensor_msgs/image_encodings.hpp>
 #include <cv_bridge/cv_bridge.h>
+
+
+#include <native_adapters/SensorMsgImage_CvMat.hpp>
+#include <sensor_msgs/image_encodings.hpp>
 #include <rclcpp/logging.hpp>
 
 StampedImage_CV::StampedImage_CV(const StampedImage_CV & other)

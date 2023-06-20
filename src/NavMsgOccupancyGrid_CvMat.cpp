@@ -13,7 +13,7 @@ const uint8_t StampedOccupancyGrid_CV::OBSTACLE = 101;
 StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV & other)
 {
   RCLCPP_WARN(rclcpp::get_logger("OccupancyGrid Adapter"), "Copy constructor called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   this->header = other.header;
   this->info = other.info;
   this->mat = other.mat.clone();
@@ -22,7 +22,7 @@ StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(const StampedOccupancyGrid_CV &
 StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(StampedOccupancyGrid_CV && other)
 {
   RCLCPP_WARN(rclcpp::get_logger("OccupancyGrid Adapter"), "Move constructor called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   this->header = std::move(other.header);
   this->info = std::move(other.info);
   this->mat = std::move(other.mat);
@@ -31,7 +31,7 @@ StampedOccupancyGrid_CV::StampedOccupancyGrid_CV(StampedOccupancyGrid_CV && othe
 StampedOccupancyGrid_CV & StampedOccupancyGrid_CV::operator=(const StampedOccupancyGrid_CV & other)
 {
   RCLCPP_WARN(rclcpp::get_logger("OccupancyGrid Adapter"), "Assignment constructor called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   if (this == &other) {return *this;}
   this->header = other.header;
   this->info = other.info;
@@ -45,7 +45,7 @@ void rclcpp::TypeAdapter<StampedOccupancyGrid_CV,
   nav_msgs::msg::OccupancyGrid & destination)
 {
   RCLCPP_WARN(rclcpp::get_logger("OccupancyGrid Adapter"), "Conversion to message");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
 
   destination.data.resize(source.mat.rows * source.mat.cols);
   for (int y = 0; y < source.mat.rows; ++y) {
@@ -61,7 +61,7 @@ void rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid>:
   const nav_msgs::msg::OccupancyGrid & source, StampedOccupancyGrid_CV & destination)
 {
   RCLCPP_WARN(rclcpp::get_logger("OccupancyGrid Adapter"), "Conversion from message");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
 
   destination.mat =
     cv::Mat(source.info.height, source.info.width, CV_MAKETYPE(cv::DataType<uint8_t>::type, 1));

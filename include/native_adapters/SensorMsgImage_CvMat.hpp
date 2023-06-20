@@ -11,7 +11,6 @@ Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 
 struct StampedImage_CV
 {
-
   std_msgs::msg::Header header;
   cv::Mat mat;
 

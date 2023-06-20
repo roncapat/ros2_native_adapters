@@ -5,11 +5,13 @@ Copyright 2023 Patrick Roncagliolo
 #ifndef NATIVE_ADAPTERS__SENSORMSGPOINTCLOUD2_PCLPOINTCLOUD_HPP_
 #define NATIVE_ADAPTERS__SENSORMSGPOINTCLOUD2_PCLPOINTCLOUD_HPP_
 
+#include <pcl/common/common.h>
+
+#include <variant>
+
 #include <rclcpp/type_adapter.hpp>
 #include <std_msgs/msg/header.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
-#include <pcl/common/common.h>
-#include <variant>
 #include <native_adapters/PointerDefinesMacro.hpp>
 
 struct StampedPointCloud_PCL

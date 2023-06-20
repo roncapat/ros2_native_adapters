@@ -2,15 +2,15 @@
 Copyright 2023 Patrick Roncagliolo
 */
 
-#include <native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp>
-
 #include <pcl_conversions/pcl_conversions.h>
+
+#include <native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp>
 #include <rclcpp/logging.hpp>
 
 StampedPointCloud_PCL::StampedPointCloud_PCL(const StampedPointCloud_PCL & other)
 {
   RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Copy constructor called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   this->header = other.header;
   this->cloud = other.cloud;
 }
@@ -18,7 +18,7 @@ StampedPointCloud_PCL::StampedPointCloud_PCL(const StampedPointCloud_PCL & other
 StampedPointCloud_PCL::StampedPointCloud_PCL(StampedPointCloud_PCL && other)
 {
   RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Move constructor called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   this->header = std::move(other.header);
   this->cloud = std::move(other.cloud);
 }
@@ -26,7 +26,7 @@ StampedPointCloud_PCL::StampedPointCloud_PCL(StampedPointCloud_PCL && other)
 StampedPointCloud_PCL & StampedPointCloud_PCL::operator=(const StampedPointCloud_PCL & other)
 {
   RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Assignment operator called");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
   if (this == &other) {return *this;}
   this->header = other.header;
   this->cloud = other.cloud;
@@ -67,7 +67,7 @@ void rclcpp::TypeAdapter<StampedPointCloud_PCL,
   sensor_msgs::msg::PointCloud2 & destination)
 {
   RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion to message");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
 
   std::visit([&](auto && cloud) {pcl::toROSMsg(cloud, destination);}, source.cloud);
   destination.header = source.header;
@@ -77,7 +77,7 @@ void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::
   const sensor_msgs::msg::PointCloud2 & source, StampedPointCloud_PCL & destination)
 {
   RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion from message");
-  //raise(SIGTRAP);
+  // raise(SIGTRAP);
 
   bool rgb = false;
   bool rgba = false;
