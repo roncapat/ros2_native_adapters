@@ -13,6 +13,15 @@ jobs:
       image: osrf/ros:humble-desktop-full-jammy
       
     steps:
+    - name: Update
+      run: apt update
+
+    - name: Install PIP
+      run: apt install -y python3-pip lcov
+
+    - name: Install colcon tools
+      run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result    
+    
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.2.7
       with:
