@@ -4,7 +4,6 @@
   <name>native_adapters</name>
   <version>1.0.0</version>
   <description>ROS2 Type adapters for common C++ frameworks</description>
-  <author email="roncapat@gmail.com">Patrick Roncagliolo</author>
   <maintainer email="roncapat@gmail.com">Patrick Roncagliolo</maintainer>
   <license>LGPLv3</license>
 
