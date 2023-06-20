@@ -11,16 +11,23 @@ jobs:
     runs-on: self-hosted
     container:
       image: osrf/ros:humble-desktop-full-jammy
-      
+
     steps:
+    - name: Update
+      run: apt update
+
+    - name: Install PIP
+      run: apt install -y python3-pip lcov
+
+    - name: Install colcon tools
+      run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
+
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.2.7
       with:
         target-ros2-distro: humble
         import-token: ${{ secrets.GITHUB_TOKEN }}
-        #vcs-repo-file-url: "https://gist.githubusercontent.com/roncapat/3bccba6c2c461b16eae1a09c516f9890/raw"
-        skip-tests: true
-    
+
     - name: Upload Logs
       uses: actions/upload-artifact@v1
       with:
