@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo
+*/
+
 #include <native_adapters/NavMsgOccupancyGrid_CvMat.hpp>
 #include <rclcpp/logging.hpp>
 

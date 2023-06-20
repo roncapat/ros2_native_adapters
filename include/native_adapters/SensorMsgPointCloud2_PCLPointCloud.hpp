@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo
+*/
+
 #ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
 #define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
 

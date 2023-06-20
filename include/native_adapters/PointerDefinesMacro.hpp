@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo
+*/
+
 #pragma once
 #include <memory>
 #define DEFINE_MSG_POINTERS(C) \

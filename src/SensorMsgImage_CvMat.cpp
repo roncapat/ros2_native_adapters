@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
+*/
+
 #include <native_adapters/SensorMsgImage_CvMat.hpp>
 
 #include <sensor_msgs/image_encodings.hpp>

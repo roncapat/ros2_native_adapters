@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo
+*/
+
 #ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
 #define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
 #include <rclcpp/type_adapter.hpp>

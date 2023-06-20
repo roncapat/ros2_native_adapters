@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo
+*/
+
 #include <native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp>
 
 #include <pcl_conversions/pcl_conversions.h>

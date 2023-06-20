@@ -1,3 +1,7 @@
+/*
+Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
+*/
+
 #ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
 #define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
 #include <rclcpp/type_adapter.hpp>
