@@ -18,8 +18,6 @@ jobs:
       with:
         target-ros2-distro: humble
         import-token: ${{ secrets.GITHUB_TOKEN }}
-        #vcs-repo-file-url: "https://gist.githubusercontent.com/roncapat/3bccba6c2c461b16eae1a09c516f9890/raw"
-        skip-tests: true
     
     - name: Upload Logs
       uses: actions/upload-artifact@v1
