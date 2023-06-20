@@ -13,3 +13,14 @@ Each wrapper class includes at least an std_msgs::Header attribute and a native 
 
 ## Examples
 See [here](https://github.com/roncapat/ros2-native-adapters-examples).
+
+## Pre-commit
+This project uses [pre-commit](https://pre-commit.com/).  On Ubuntu, install it with:
+```
+sudo python3 -m pip install pre-commit
+```
+Then, enter the repository root and run :
+```
+pre-commit install
+```
+Now every time a commit is issued, a number of automated checks are done on code.
