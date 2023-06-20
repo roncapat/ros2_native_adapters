@@ -58,4 +58,9 @@ ament_export_include_directories(include ${PCL_INCLUDE_DIRS})
 ament_export_libraries(NativeAdapters)
 ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions cv_bridge)
 
+if(BUILD_TESTING) 
+   find_package(ament_lint_auto REQUIRED) 
+   ament_lint_auto_find_test_dependencies() 
+ endif()
+
 ament_package()
