@@ -2,8 +2,8 @@
 Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
+#ifndef NATIVE_ADAPTERS__SENSORMSGIMAGE_CVMAT_HPP_
+#define NATIVE_ADAPTERS__SENSORMSGIMAGE_CVMAT_HPP_
 #include <rclcpp/type_adapter.hpp>
 #include <sensor_msgs/msg/image.hpp>
 #include <opencv2/core/mat.hpp>
@@ -34,4 +34,4 @@ struct rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>
 };
 
 
-#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedImage_CV
+#endif  // NATIVE_ADAPTERS__SENSORMSGIMAGE_CVMAT_HPP_

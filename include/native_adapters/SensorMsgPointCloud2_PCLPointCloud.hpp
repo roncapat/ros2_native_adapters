@@ -2,8 +2,8 @@
 Copyright 2023 Patrick Roncagliolo
 */
 
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
+#ifndef NATIVE_ADAPTERS__SENSORMSGPOINTCLOUD2_PCLPOINTCLOUD_HPP_
+#define NATIVE_ADAPTERS__SENSORMSGPOINTCLOUD2_PCLPOINTCLOUD_HPP_
 
 #include <rclcpp/type_adapter.hpp>
 #include <std_msgs/msg/header.hpp>
@@ -50,4 +50,4 @@ struct rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>
   static void convert_to_custom(const ros_message_type & source, custom_type & destination);
 };
 
-#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedPointCloud_PCL
+#endif  // NATIVE_ADAPTERS__SENSORMSGPOINTCLOUD2_PCLPOINTCLOUD_HPP_

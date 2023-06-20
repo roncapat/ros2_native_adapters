@@ -2,8 +2,8 @@
 Copyright 2023 Patrick Roncagliolo
 */
 
-#ifndef TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
-#define TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
+#ifndef NATIVE_ADAPTERS__NAVMSGOCCUPANCYGRID_CVMAT_HPP_
+#define NATIVE_ADAPTERS__NAVMSGOCCUPANCYGRID_CVMAT_HPP_
 #include <rclcpp/type_adapter.hpp>
 #include <std_msgs/msg/header.hpp>
 #include <nav_msgs/msg/occupancy_grid.hpp>
@@ -40,4 +40,4 @@ struct rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid
   static void convert_to_custom(const ros_message_type & source, custom_type & destination);
 };
 
-#endif // TRAVERSABILITY_TOOLKIT__ADAPTERS__StampedOccupancyGrid_CV
+#endif  // NATIVE_ADAPTERS__NAVMSGOCCUPANCYGRID_CVMAT_HPP_
