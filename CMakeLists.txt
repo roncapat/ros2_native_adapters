@@ -20,7 +20,7 @@ set(PUB_HEADERS
   include/native_adapters/SensorMsgPointCloud2_PCLPointCloud.hpp
   include/native_adapters/PCL.hpp
   include/native_adapters/PointerDefinesMacro.hpp
-  )
+)
 
 add_library(NativeAdapters SHARED
   src/NavMsgOccupancyGrid_CvMat.cpp
@@ -42,7 +42,7 @@ target_link_libraries(NativeAdapters
   ${cv_bridge_TARGETS}
   ${OpenCV_LIBS}
   ${PCL_LIBRARIES}
-  )
+)
 
 install(
   TARGETS NativeAdapters
@@ -59,8 +59,8 @@ ament_export_libraries(NativeAdapters)
 ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions cv_bridge)
 
 if(BUILD_TESTING)
-   find_package(ament_lint_auto REQUIRED)
-   ament_lint_auto_find_test_dependencies()
- endif()
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
 
 ament_package()
