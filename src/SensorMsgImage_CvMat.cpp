@@ -2,7 +2,7 @@
 Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
-#include <cv_bridge/cv_bridge.h>
+#include <cv_bridge/cv_bridge.hpp>
 
 
 #include <native_adapters/SensorMsgImage_CvMat.hpp>
