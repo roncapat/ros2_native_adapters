@@ -23,20 +23,21 @@ StampedPointCloud_PCL::StampedPointCloud_PCL(StampedPointCloud_PCL && other)
   this->cloud = std::move(other.cloud);
 }
 
-<<<<<<< Updated upstream
 StampedPointCloud_PCL & StampedPointCloud_PCL::operator=(const StampedPointCloud_PCL & other)
 {
   //RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Assignment operator called");
   // raise(SIGTRAP);
   if (this == &other) {return *this;}
-StampedPointCloud_PCL & StampedPointCloud_PCL::operator=(const StampedPointCloud_PCL & other){
-  ////RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Assignment operator called");
-  //raise(SIGTRAP);
-  if (this == &other) return *this; 
->>>>>>> Stashed changes
+  this->header = other.header;
+  this->cloud = other.cloud;
+  return *this;
+}
+
+uint32_t StampedPointCloud_PCL::width() const
 {
   return std::visit([](auto && cloud) {return cloud.width;}, cloud);
 }
+
 
 uint32_t StampedPointCloud_PCL::height() const
 {

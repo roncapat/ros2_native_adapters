@@ -12,6 +12,7 @@ find_package(OpenCV REQUIRED)
 find_package(PCL 1.12 REQUIRED COMPONENTS common)
 find_package(pcl_conversions REQUIRED)
 find_package(cv_bridge REQUIRED)
+find_package(pcl_msgs REQUIRED)
 
 set(PUB_HEADERS
   include/native_adapters/NavMsgOccupancyGrid_CvMat.hpp
@@ -56,7 +57,7 @@ install(
 #ament_export_targets(NativeAdapters)
 ament_export_include_directories(include ${PCL_INCLUDE_DIRS})
 ament_export_libraries(NativeAdapters)
-ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions)
+ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions pcl_msgs)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
