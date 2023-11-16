@@ -3,7 +3,6 @@ Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
 #include <native_adapters/DigitalElevationMapMsg_CvMat.hpp>
-// #include <sensor_msgs/image_encodings.hpp>
 #include <rclcpp/logging.hpp>
 
 StampedDigitalElevationMap_CV::StampedDigitalElevationMap_CV(
