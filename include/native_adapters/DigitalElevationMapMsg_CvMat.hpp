@@ -2,8 +2,8 @@
 Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
-#ifndef NATIVE_ADAPTERS__DIGITALELEVATIONMAP_CVMAT_HPP_
-#define NATIVE_ADAPTERS__DIGITALELEVATIONMAP_CVMAT_HPP_
+#ifndef NATIVE_ADAPTERS__DIGITALELEVATIONMAPMSG_CVMAT_HPP_
+#define NATIVE_ADAPTERS__DIGITALELEVATIONMAPMSG_CVMAT_HPP_
 #include <rclcpp/type_adapter.hpp>
 #include <dem_msgs/msg/digital_elevation_map.hpp>
 #include <opencv2/core/mat.hpp>
@@ -35,4 +35,4 @@ struct rclcpp::TypeAdapter<StampedDigitalElevationMap_CV, dem_msgs::msg::Digital
 };
 
 
-#endif  // NATIVE_ADAPTERS__DIGITALELEVATIONMAP_CVMAT_HPP_
+#endif  // NATIVE_ADAPTERS__DIGITALELEVATIONMAPMSG_CVMAT_HPP_

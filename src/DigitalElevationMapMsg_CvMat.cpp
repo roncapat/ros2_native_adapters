@@ -8,7 +8,7 @@ Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 StampedDigitalElevationMap_CV::StampedDigitalElevationMap_CV(
   const StampedDigitalElevationMap_CV & other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("DEM Adapter"), "Copy constructor called");
+  // RCLCPP_WARN(rclcpp::get_logger("Digital Elevation Map Adapter"), "Copy constructor called");
   this->header = other.header;
   this->info = other.info;
   this->mat = other.mat.clone();
@@ -16,7 +16,7 @@ StampedDigitalElevationMap_CV::StampedDigitalElevationMap_CV(
 
 StampedDigitalElevationMap_CV::StampedDigitalElevationMap_CV(StampedDigitalElevationMap_CV && other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("DEM Adapter"), "Move constructor called");
+  // RCLCPP_WARN(rclcpp::get_logger("Digital Elevation Map Adapter"), "Move constructor called");
   this->header = std::move(other.header);
   this->info = std::move(other.info);
   this->mat = std::move(other.mat);
@@ -25,7 +25,7 @@ StampedDigitalElevationMap_CV::StampedDigitalElevationMap_CV(StampedDigitalEleva
 StampedDigitalElevationMap_CV & StampedDigitalElevationMap_CV::operator=(
   const StampedDigitalElevationMap_CV & other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("DEM Adapter"), "Assignment operator called");
+  // RCLCPP_WARN(rclcpp::get_logger("Digital Elevation Map Adapter"), "Assignment operator called");
   if (this == &other) {return *this;}
   this->header = other.header;
   this->info = other.info;
@@ -37,7 +37,7 @@ void rclcpp::TypeAdapter<StampedDigitalElevationMap_CV,
   dem_msgs::msg::DigitalElevationMap>::convert_to_ros_message(
   const custom_type & source, ros_message_type & destination)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("DEM Adapter"), "Conversion to message");
+  // RCLCPP_WARN(rclcpp::get_logger("Digital Elevation Map Adapter"), "Conversion to message");
 
   destination.data.resize(source.mat.rows * source.mat.cols);
   for (int y = 0; y < source.mat.rows; ++y) {
@@ -54,7 +54,7 @@ void rclcpp::TypeAdapter<StampedDigitalElevationMap_CV,
   dem_msgs::msg::DigitalElevationMap>::convert_to_custom(
   const ros_message_type & source, custom_type & destination)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("DEM Adapter"), "Conversion from message");
+  // RCLCPP_WARN(rclcpp::get_logger("Digital Elevation Map Adapter"), "Conversion from message");
 
   destination.mat =
     cv::Mat(source.info.height, source.info.width, CV_MAKETYPE(cv::DataType<float>::type, 1));
