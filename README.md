@@ -13,7 +13,7 @@ This package provides the following ROS2 type adaptations:
 | dem_msgs/DigitalElevationMap | StampedDigitalElevationMap_CV | cv::Mat |CV.hpp|
 
 ## Wrapper philosophy
-Each wrapper class includes at least an std_msgs::Header attribute and a native handle.
+Each wrapper class includes at least an `std_msgs::Header` attribute and a native handle.
 
 ## Examples
 See [here](https://github.com/roncapat/ros2-native-adapters-examples).
