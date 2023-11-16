@@ -11,7 +11,7 @@ Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 
 StampedImage_CV::StampedImage_CV(const StampedImage_CV & other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Copy constructor called");
+  // RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Copy constructor called");
   this->header = other.header;
   this->mat = other.mat.clone();
 }
@@ -25,7 +25,7 @@ StampedImage_CV::StampedImage_CV(StampedImage_CV && other)
 
 StampedImage_CV & StampedImage_CV::operator=(const StampedImage_CV & other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Assignment operator called");
+  // RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Assignment operator called");
   if (this == &other) {return *this;}
 
   this->header = other.header;
@@ -36,7 +36,7 @@ StampedImage_CV & StampedImage_CV::operator=(const StampedImage_CV & other)
 void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_ros_message(
   const custom_type & source, ros_message_type & destination)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion to message");
+  // RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion to message");
 
   int cv_type {source.mat.type()};
   std::string encoding {};
@@ -95,7 +95,7 @@ void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_r
 void rclcpp::TypeAdapter<StampedImage_CV, sensor_msgs::msg::Image>::convert_to_custom(
   const ros_message_type & source, custom_type & destination)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion from message");
+  // RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Conversion from message");
 
   destination.header = source.header;
   destination.mat = std::move(cv_bridge::toCvCopy(source, source.encoding)->image);
