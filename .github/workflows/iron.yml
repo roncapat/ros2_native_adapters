@@ -22,11 +22,15 @@ jobs:
     - name: Install colcon tools
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
+    - name: Checkout
+      uses: actions/checkout@v2
+      
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.3.5
       with:
         target-ros2-distro: iron
         import-token: ${{ secrets.GITHUB_TOKEN }}
+        vcs-repo-file-url: "${{ github.workspace }}/iron.repos"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v1
