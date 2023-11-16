@@ -18,7 +18,7 @@ StampedImage_CV::StampedImage_CV(const StampedImage_CV & other)
 
 StampedImage_CV::StampedImage_CV(StampedImage_CV && other)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Move constructor called");
+  // RCLCPP_WARN(rclcpp::get_logger("Image Adapter"), "Move constructor called");
   this->header = std::move(other.header);
   this->mat = std::move(other.mat);
 }

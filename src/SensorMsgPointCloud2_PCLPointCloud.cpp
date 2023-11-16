@@ -77,7 +77,7 @@ void rclcpp::TypeAdapter<StampedPointCloud_PCL,
 void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::convert_to_custom(
   const sensor_msgs::msg::PointCloud2 & source, StampedPointCloud_PCL & destination)
 {
-  //RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion from message");
+  // RCLCPP_WARN(rclcpp::get_logger("PointCloud2 Adapter"), "Conversion from message");
   // raise(SIGTRAP);
 
   bool rgb = false;
