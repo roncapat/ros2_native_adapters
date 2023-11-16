@@ -23,7 +23,7 @@ jobs:
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
     - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.2.7
+      uses: ros-tooling/action-ros-ci@0.3.5
       with:
         target-ros2-distro: iron
         import-token: ${{ secrets.GITHUB_TOKEN }}
