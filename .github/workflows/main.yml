@@ -25,6 +25,7 @@ jobs:
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.2.7
       with:
+        ref: main
         target-ros2-distro: humble
         import-token: ${{ secrets.GITHUB_TOKEN }}
 
