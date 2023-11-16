@@ -22,6 +22,9 @@ jobs:
     - name: Install colcon tools
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
+    - name: Checkout
+      uses: actions/checkout@v2
+
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.3.5
       with:
