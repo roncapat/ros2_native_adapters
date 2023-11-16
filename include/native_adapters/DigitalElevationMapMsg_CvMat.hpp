@@ -2,8 +2,8 @@
 Copyright 2023 Patrick Roncagliolo, Antonino Bongiovanni
 */
 
-#ifndef NATIVE_ADAPTERS__SENSORMSGIMAGE_CVMAT_HPP_
-#define NATIVE_ADAPTERS__SENSORMSGIMAGE_CVMAT_HPP_
+#ifndef NATIVE_ADAPTERS__DIGITALELEVATIONMAP_CVMAT_HPP_
+#define NATIVE_ADAPTERS__DIGITALELEVATIONMAP_CVMAT_HPP_
 #include <rclcpp/type_adapter.hpp>
 #include <dem_msgs/msg/digital_elevation_map.hpp>
 #include <opencv2/core/mat.hpp>
