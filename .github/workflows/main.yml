@@ -23,7 +23,7 @@ jobs:
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
     - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.2.7
+      uses: ros-tooling/action-ros-ci@0.3.5
       with:
         ref: main
         target-ros2-distro: humble
