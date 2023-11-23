@@ -2,6 +2,7 @@
 
 [![Ubuntu 22.04 Humble Build](https://github.com/roncapat/ros2_native_adapters/actions/workflows/main.yml/badge.svg)](https://github.com/roncapat/ros2_native_adapters/actions/workflows/main.yml)
 [![Ubuntu 22.04 Iron Build](https://github.com/roncapat/ros2_native_adapters/actions/workflows/iron.yml/badge.svg)](https://github.com/roncapat/ros2_native_adapters/actions/workflows/iron.yml)
+[![Ubuntu 22.04 Rolling Build](https://github.com/roncapat/ros2_native_adapters/actions/workflows/rolling.yml/badge.svg?branch=iron)](https://github.com/roncapat/ros2_native_adapters/actions/workflows/rolling.yml)
 
 This package provides the following ROS2 type adaptations:
 
