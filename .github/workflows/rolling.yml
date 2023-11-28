@@ -28,7 +28,7 @@ jobs:
     - name: Run Tests
       uses: ros-tooling/action-ros-ci@0.3.5
       with:
-        target-ros2-distro: iron
+        target-ros2-distro: rolling
         import-token: ${{ secrets.GITHUB_TOKEN }}
         vcs-repo-file-url: "${{ github.workspace }}/iron.repos"
 
