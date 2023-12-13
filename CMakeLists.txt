@@ -25,20 +25,42 @@ set(PUB_HEADERS
   include/native_adapters/DigitalElevationMapMsg_CvMat.hpp
 )
 
-add_library(NativeAdapters SHARED
-  src/NavMsgOccupancyGrid_CvMat.cpp
+add_library(pcl_adapters SHARED
   src/SensorMsgPointCloud2_PCLPointCloud.cpp
-  src/SensorMsgImage_CvMat.cpp
-  src/DigitalElevationMapMsg_CvMat.cpp)
-set_target_properties(NativeAdapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
-target_include_directories(NativeAdapters PUBLIC include)
-
-target_include_directories(NativeAdapters PRIVATE
+)
+set_target_properties(pcl_adapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
+target_include_directories(
+  pcl_adapters
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include>"
+  PRIVATE
   ${pcl_conversions_INCLUDE_DIRS}
+)
+
+target_link_libraries(pcl_adapters
+  rclcpp::rclcpp
+  ${std_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
+  ${PCL_LIBRARIES}
+)
+
+add_library(cv_adapters SHARED
+  src/NavMsgOccupancyGrid_CvMat.cpp
+  src/SensorMsgImage_CvMat.cpp
+  src/DigitalElevationMapMsg_CvMat.cpp
+)
+set_target_properties(cv_adapters PROPERTIES PUBLIC_HEADER "${PUB_HEADERS}")
+target_include_directories(
+  cv_adapters
+  PUBLIC
+  "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+  "$<INSTALL_INTERFACE:include>"
+  PRIVATE
   ${cv_bridge_INCLUDE_DIRS}
 )
 
-target_link_libraries(NativeAdapters
+target_link_libraries(cv_adapters
   rclcpp::rclcpp
   ${std_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
@@ -46,11 +68,16 @@ target_link_libraries(NativeAdapters
   ${dem_msgs_TARGETS}
   ${cv_bridge_TARGETS}
   ${OpenCV_LIBS}
-  ${PCL_LIBRARIES}
 )
 
 install(
-  TARGETS NativeAdapters
+  DIRECTORY include/
+  DESTINATION include
+)
+
+install(
+  TARGETS pcl_adapters
+  EXPORT export_pcl_adapters
   PUBLIC_HEADER DESTINATION include/native_adapters
   INCLUDES DESTINATION include
   ARCHIVE DESTINATION lib
@@ -58,10 +85,30 @@ install(
   RUNTIME DESTINATION bin
 )
 
-#ament_export_targets(NativeAdapters)
-ament_export_include_directories(include ${PCL_INCLUDE_DIRS})
-ament_export_libraries(NativeAdapters)
-ament_export_dependencies(rclcpp rclcpp_components std_msgs sensor_msgs nav_msgs OpenCV PCL pcl_conversions pcl_msgs dem_msgs)
+install(
+  TARGETS cv_adapters
+  EXPORT export_cv_adapters
+  PUBLIC_HEADER DESTINATION include/native_adapters
+  INCLUDES DESTINATION include
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+ament_export_targets(export_pcl_adapters export_cv_adapters HAS_LIBRARY_TARGET)
+ament_export_dependencies(
+  rclcpp
+  rclcpp_components
+  std_msgs
+  sensor_msgs
+  nav_msgs
+  pcl_msgs
+  dem_msgs
+  cv_bridge
+  OpenCV
+  PCL
+  pcl_conversions
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
