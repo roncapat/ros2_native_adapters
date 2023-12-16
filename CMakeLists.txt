@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.22)
 project(native_adapters)
 
 set(CMAKE_CXX_STANDARD 17)
