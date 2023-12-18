@@ -8,7 +8,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
-find_package(OpenCV REQUIRED)
+find_package(OpenCV REQUIRED COMPONENTS core)
 find_package(PCL 1.12 REQUIRED COMPONENTS common)
 find_package(pcl_conversions REQUIRED)
 find_package(cv_bridge REQUIRED)
@@ -67,7 +67,7 @@ target_link_libraries(cv_adapters
   ${nav_msgs_TARGETS}
   ${dem_msgs_TARGETS}
   ${cv_bridge_TARGETS}
-  ${OpenCV_LIBS}
+  opencv_core
 )
 
 install(
