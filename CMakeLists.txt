@@ -42,7 +42,7 @@ target_link_libraries(pcl_adapters
   rclcpp::rclcpp
   ${std_msgs_TARGETS}
   ${sensor_msgs_TARGETS}
-  ${PCL_LIBRARIES}
+  pcl_common
 )
 
 add_library(cv_adapters SHARED
