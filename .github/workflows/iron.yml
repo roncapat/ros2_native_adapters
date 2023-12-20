@@ -36,7 +36,7 @@ jobs:
       run: tar -jcvf log.tar.tbz2 ros_ws/log
     
     - name: Upload Logs
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: colcon-logs
         path: log.tar.tbz2
