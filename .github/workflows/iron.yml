@@ -41,3 +41,4 @@ jobs:
         name: colcon-logs
         path: log.tar.tbz2
         compression-level: 0
+        if: always()
