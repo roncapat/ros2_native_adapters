@@ -1,7 +1,12 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.22)
 project(native_adapters)
 
-set(CMAKE_CXX_STANDARD 17)
+# Default to C++17
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 17)
+endif()
+
+add_compile_options(-Wall -Wextra -Wpedantic -Wconversion -Wdouble-promotion -Wfloat-equal -Wshadow)
 
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
