@@ -14,16 +14,16 @@ jobs:
 
     steps:
     - name: Update
-      run: apt update
+      run: apt-get update
 
     - name: Install PIP
-      run: apt install -y python3-pip lcov
+      run: apt-get install -y python3-pip lcov
 
     - name: Install colcon tools
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
     - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.3.5
+      uses: ros-tooling/action-ros-ci@0.3.6
       with:
         ref: humble
         target-ros2-distro: humble
