@@ -50,7 +50,8 @@ void rclcpp::TypeAdapter<StampedOccupancyGrid_CV,
   destination.data.resize(source.mat.rows * source.mat.cols);
   for (int y = 0; y < source.mat.rows; ++y) {
     for (int x = 0; x < source.mat.cols; ++x) {
-      destination.data[y * source.mat.cols + x] = source.mat.at<uint8_t>(y, x) - 1;
+      destination.data[y * source.mat.cols + x] = 
+        static_cast<int8_t>(source.mat.at<uint8_t>(y, x) - 1);
     }
   }
   destination.header = source.header;
@@ -67,7 +68,8 @@ void rclcpp::TypeAdapter<StampedOccupancyGrid_CV, nav_msgs::msg::OccupancyGrid>:
     cv::Mat(source.info.height, source.info.width, CV_MAKETYPE(cv::DataType<uint8_t>::type, 1));
   for (unsigned int y = 0; y < source.info.height; ++y) {
     for (unsigned int x = 0; x < source.info.width; ++x) {
-      destination.mat.at<uint8_t>(y, x) = source.data[y * source.info.width + x] + 1;
+      destination.mat.at<uint8_t>(y, x) =
+        static_cast<uint8_t>(source.data[y * source.info.width + x] + 1);
     }
   }
   destination.header = source.header;
