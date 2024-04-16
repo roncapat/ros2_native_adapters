@@ -3,6 +3,8 @@ project(native_adapters)
 
 set(CMAKE_CXX_STANDARD 17)
 
+add_compile_options(-Wall -Wextra -Wpedantic -Wconversion -Wdouble-promotion -Wfloat-equal -Wshadow)
+
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
