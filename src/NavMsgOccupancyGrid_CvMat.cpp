@@ -50,7 +50,7 @@ void rclcpp::TypeAdapter<StampedOccupancyGrid_CV,
   destination.data.resize(source.mat.rows * source.mat.cols);
   for (int y = 0; y < source.mat.rows; ++y) {
     for (int x = 0; x < source.mat.cols; ++x) {
-      destination.data[y * source.mat.cols + x] = 
+      destination.data[y * source.mat.cols + x] =
         static_cast<int8_t>(source.mat.at<uint8_t>(y, x) - 1);
     }
   }
