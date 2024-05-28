@@ -1,4 +1,4 @@
-name: Ubuntu 22.04 Rolling Build
+name: Ubuntu 24.04 Rolling Build
 
 on:
   pull_request:
@@ -10,23 +10,20 @@ jobs:
   Build:
     runs-on: self-hosted
     container:
-      image: osrf/ros:rolling-desktop-full-jammy
+      image: osrf/ros:rolling-desktop-full
 
     steps:
     - name: Update
       run: apt-get update
 
     - name: Install PIP
-      run: apt-get install -y python3-pip lcov
-
-    - name: Install colcon tools
-      run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
+      run: apt-get install -y python3-pip lcov python3-colcon-lcov-result python3-colcon-coveragepy-result
 
     - name: Checkout
       uses: actions/checkout@v4
       
     - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.3.6
+      uses: ros-tooling/action-ros-ci@0.3.13
       with:
         target-ros2-distro: rolling
         import-token: ${{ secrets.GITHUB_TOKEN }}
