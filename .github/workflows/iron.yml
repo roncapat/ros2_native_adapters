@@ -33,7 +33,7 @@ jobs:
         vcs-repo-file-url: "${{ github.workspace }}/iron.repos"
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: colcon-logs
         path: ros_ws/log
