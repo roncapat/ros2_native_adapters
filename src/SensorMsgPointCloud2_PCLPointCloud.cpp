@@ -35,20 +35,20 @@ StampedPointCloud_PCL & StampedPointCloud_PCL::operator=(const StampedPointCloud
 
 uint32_t StampedPointCloud_PCL::width() const
 {
-  return std::visit([](auto && cloud) {return cloud.width;}, cloud);
+  return std::visit([](auto && _cloud) {return _cloud.width;}, cloud);
 }
 
 
 uint32_t StampedPointCloud_PCL::height() const
 {
-  return std::visit([](auto && cloud) {return cloud.height;}, cloud);
+  return std::visit([](auto && _cloud) {return _cloud.height;}, cloud);
 }
 
 bool StampedPointCloud_PCL::has_colors() const
 {
   return std::visit(
-    [](auto && cloud) {
-      using T = typename std::decay_t<decltype(cloud)>::PointType;
+    [](auto && _cloud) {
+      using T = typename std::decay_t<decltype(_cloud)>::PointType;
       return pcl::traits::has_color_v<T>;
     }, cloud);
 }

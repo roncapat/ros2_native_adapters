@@ -14,19 +14,19 @@ jobs:
 
     steps:
     - name: Update
-      run: apt update
+      run: apt-get update
 
     - name: Install PIP
-      run: apt install -y python3-pip lcov
+      run: apt-get install -y python3-pip lcov
 
     - name: Install colcon tools
       run: python3 -m pip install colcon-lcov-result colcon-coveragepy-result
 
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       
     - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.3.5
+      uses: ros-tooling/action-ros-ci@0.3.6
       with:
         target-ros2-distro: iron
         import-token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,4 +37,4 @@ jobs:
       with:
         name: colcon-logs
         path: ros_ws/log
-      if: always()
+      if: failure()
