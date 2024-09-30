@@ -1,5 +1,5 @@
 repositories:
-  dem_msgs:
+  deps/dem_msgs:
     type: git
     url: https://github.com/roncapat/dem_msgs.git
     version: iron
