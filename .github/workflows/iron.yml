@@ -15,6 +15,7 @@ jobs:
 
     steps:
     - name: Update
+      timeout-minutes: 2
       run: apt-get update
 
     - name: Install PIP
