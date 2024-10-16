@@ -8,6 +8,7 @@ on:
 
 jobs:
   Build:
+    timeout-minutes: 10
     runs-on: self-hosted
     container:
       image: osrf/ros:humble-desktop-full-jammy
