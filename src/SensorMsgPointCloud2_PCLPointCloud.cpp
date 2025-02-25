@@ -121,15 +121,15 @@ void rclcpp::TypeAdapter<StampedPointCloud_PCL, sensor_msgs::msg::PointCloud2>::
     }
   } else if (label) {
     if (normals) {
-      process_message<pcl::PointNormal>(source, destination);
-    } else {
-      process_message<pcl::PointXYZ>(source, destination);
-    }
-  } else {
-    if (normals) {
       process_message<pcl::PointXYZLNormal>(source, destination);
     } else {
       process_message<pcl::PointXYZL>(source, destination);
+    }
+  } else {
+    if (normals) {
+      process_message<pcl::PointNormal>(source, destination);
+    } else {
+      process_message<pcl::PointXYZ>(source, destination);
     }
   }
 
